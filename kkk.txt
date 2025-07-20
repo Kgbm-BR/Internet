@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Wi-Fi da Prefeitura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white url('https://upload.wikimedia.org/wikipedia/commons/5/53/Bandeira_de_Caruaru.svg') no-repeat center center;
+      background-size: contain;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 30px auto;
+      border: none;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: white;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .btn {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: gray;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO FOI REMOVIDO -->
+
+  <!-- Formulário de Cadastro -->
+  <div class="container" id="cadastro-container">
+    <form id="form-cadastro">
+      <div class="form-group">
+        <label>Nome completo</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" required>
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" required>
+      </div>
+      <button type="submit" class="btn">Prosseguir</button>
+    </form>
+  </div>
+
+  <div class="error-message hidden" id="mensagem-erro">
+    Não foi possível conectar-se à rede aberta pois ocorreu alguns erros.
+  </div>
+
+  <script>
+    document.getElementById('form-cadastro').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('cadastro-container').classList.add('hidden');
+      document.getElementById('mensagem-erro').classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>
